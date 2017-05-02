@@ -714,7 +714,7 @@ class Net::HTTP::Persistent
   # Returns the HTTP protocol version for +uri+
 
   def http_version uri
-    @http_versions["#{uri.host}:#{uri.port}"]
+    @http_versions["#{uri.hostname}:#{uri.port}"]
   end
 
   ##
@@ -972,7 +972,7 @@ class Net::HTTP::Persistent
       end
     end
 
-    @http_versions["#{uri.host}:#{uri.port}"] ||= response.http_version
+    @http_versions["#{uri.hostname}:#{uri.port}"] ||= response.http_version
 
     response
   end
